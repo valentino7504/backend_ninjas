@@ -71,7 +71,10 @@ class TestUser(unittest.TestCase):
         with self.assertRaises(ValueError):
             user_5 = User("Robin", "Female", "ghub.com/yuri")
         with self.assertRaises(ValueError):
-            user_6 = User("Luffy", "Male", "github.com/valentino7504/first-lhc")
+            user_6 = User("Luffy",
+                          "Male",
+                          "github.com/valentino7504/first-lhc"
+                          )
         with self.assertRaises(ValueError):
             user = User("Edwin", "Male", "not_a_valid_url")
         with self.assertRaises(ValueError):

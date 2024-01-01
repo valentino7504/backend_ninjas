@@ -68,7 +68,19 @@ class User:
         """
         if not isinstance(value, str):
             raise TypeError("github url must be a string")
-        pattern = re.compile(r'^(?:https?://)?(?:www\.)?github\.com/[a-zA-Z0-9_-]+$')
+        pattern = re.compile(
+            r'^(?:https?://)?(?:www\.)?github\.com/[a-zA-Z0-9_-]+$'
+        )
         if pattern.match(value) is None or len(value.strip()) == 0:
             raise ValueError("url is not a valid github username url")
         self.__github_url = value
+
+    def to_dict(self):
+        """
+        returns a dictionary representation of the user
+        """
+        return {
+            "name": self.name,
+            "gender": self.gender,
+            "github_url": self.github_url
+        }
